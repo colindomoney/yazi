@@ -10,5 +10,8 @@ result-*
 
 .idea/
 .vscode/
+.claude/settings.local.json
 
 *.snap
+
+dist/
