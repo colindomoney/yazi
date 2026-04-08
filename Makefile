@@ -9,7 +9,7 @@ setup:
 all: $(TARGETS)
 
 $(TARGETS):
-	cargo zigbuild --release --target $@
+	AR="$(CURDIR)/.cargo/zig-ar.sh" cargo zigbuild --release --target $@
 	mkdir -p $(DIST)/$@
 	cp target/$@/release/yazi $(DIST)/$@/
 	cp target/$@/release/ya $(DIST)/$@/
