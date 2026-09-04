@@ -2,12 +2,12 @@ TARGETS := x86_64-unknown-linux-gnu aarch64-unknown-linux-gnu
 MACOS_TARGETS := aarch64-apple-darwin x86_64-apple-darwin
 DIST := dist
 
+all: $(TARGETS) $(MACOS_TARGETS)
+
 setup:
 	brew install zig
 	cargo install --locked cargo-zigbuild
 	rustup target add $(TARGETS) $(MACOS_TARGETS)
-
-all: $(TARGETS) $(MACOS_TARGETS)
 
 $(TARGETS):
 	AR="$(CURDIR)/.cargo/zig-ar.sh" cargo zigbuild --release --target $@
